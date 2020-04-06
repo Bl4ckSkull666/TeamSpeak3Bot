@@ -1,5 +1,9 @@
 package de.bl4ckskull666.teamspeakbot.classes;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import de.bl4ckskull666.teamspeakbot.Main;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -8,6 +12,7 @@ import java.util.Calendar;
 
 public class MyLogger {
     private File _file = new File("info.log");
+    private final Logger _logger = LoggerFactory.getLogger(Main.class);
 
     public void log(String msg) {
         String line = Config.formatString(getDate() + "|" + getTime() + "|" + msg);
@@ -19,7 +24,8 @@ public class MyLogger {
         } catch(IOException ex) {
             ex.printStackTrace();
         }
-        System.out.println(line);
+        _logger.warn(line);
+        //System.out.println(line);
         checkFilesize();
     }
 

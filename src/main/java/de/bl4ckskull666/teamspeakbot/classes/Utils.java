@@ -7,6 +7,7 @@ import de.bl4ckskull666.teamspeakbot.Main;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Utils {
     public static String QueryReplacements(String query, ClientInfo client, ChannelInfo channel, ChannelInfo parent, String seen) {
@@ -90,5 +91,18 @@ public class Utils {
             i++;
         }
         Main.getLogger().log("Loaded " + i + " Clients.");
+    }
+
+    public static String formatSQLDate(String dt) {
+        String[] first = dt.split(Pattern.quote(" "));
+        if(first.length < 2)
+            return dt;
+
+        String[] date = first[0].split(Pattern.quote("-"));
+        String[] time = first[1].split(Pattern.quote(":"));
+        if(date.length < 3 || time.length < 3)
+            return dt;
+
+        return date[2] + "." + date[1] + "." + date[0] + " um " + time[0] + ":" + time[1] + " Uhr";
     }
 }

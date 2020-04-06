@@ -156,7 +156,7 @@ public class Main {
             _tsConfig = new TS3Config();
             _tsConfig.setHost(ip);
             _tsConfig.setQueryPort(port);
-            //_tsConfig.setEnableCommunicationsLogging(true);
+            _tsConfig.setEnableCommunicationsLogging(true);
             _tsConfig.setFloodRate(TS3Query.FloodRate.UNLIMITED);
             _tsConfig.setReconnectStrategy(ReconnectStrategy.constantBackoff());
             _tsQuery = new TS3Query(_tsConfig);
@@ -180,7 +180,7 @@ public class Main {
                 }
             }
 
-            _reconnectTask = new ScheduleTask(new BotReload(), 60000,60000);
+            //_reconnectTask = new ScheduleTask(new BotReload(), 60000,60000);
         }
     }
 

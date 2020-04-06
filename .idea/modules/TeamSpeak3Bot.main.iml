@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="TeamSpeak3Bot:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="TeamSpeakBot" external.system.module.type="sourceSet" external.system.module.version="" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../build/classes/java/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.30" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.theholywaffle:teamspeak3-api:1.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.19" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.30" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+  </component>
+</module>

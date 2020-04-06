@@ -205,4 +205,9 @@ public final class Database {
         String query = "SELECT `id` FROM `%prefix%clients`";
         return query;
     }
+
+    public static String getInaktiveChannelQuery() {
+        String query = "SELECT * FROM `%prefix%channels` WHERE `parentChannelID` = '0' AND `lastUse` <= DATE_SUB(NOW(), INTERVAL 14 DAY)";
+        return query;
+    }
 }
