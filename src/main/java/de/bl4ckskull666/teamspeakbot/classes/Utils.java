@@ -70,6 +70,7 @@ public class Utils {
 
                 try {
                     Main.setTopOnline((int)me.get("topUsers"));
+                    Main.getLogger().log("Loaded Top Online of " + Main.getTopOnline() + " Clients.");
                 } catch(Exception ex) { }
             }
         }
@@ -80,11 +81,14 @@ public class Utils {
         if(tmp.isEmpty())
             return;
 
+        int i = 0;
         for(Map<String, Object> me: tmp) {
             if(!me.containsKey("id"))
                 continue;
 
             Main.addBaseClientId((String)me.get("id"));
+            i++;
         }
+        Main.getLogger().log("Loaded " + i + " Clients.");
     }
 }

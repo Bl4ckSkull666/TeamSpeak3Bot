@@ -5,7 +5,6 @@ import com.github.theholywaffle.teamspeak3.api.exception.TS3Exception;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ChannelInfo;
 import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ClientInfo;
-import de.bl4ckskull666.teamspeakbot.Bot;
 import de.bl4ckskull666.teamspeakbot.Main;
 import de.bl4ckskull666.teamspeakbot.classes.Database;
 import de.bl4ckskull666.teamspeakbot.classes.Utils;

@@ -3,7 +3,6 @@ package de.bl4ckskull666.teamspeakbot.listeners.sync;
 import com.github.theholywaffle.teamspeak3.api.event.ClientMovedEvent;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ChannelInfo;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ClientInfo;
-import de.bl4ckskull666.teamspeakbot.Bot;
 import de.bl4ckskull666.teamspeakbot.Main;
 import de.bl4ckskull666.teamspeakbot.classes.Database;
 import de.bl4ckskull666.teamspeakbot.classes.Utils;

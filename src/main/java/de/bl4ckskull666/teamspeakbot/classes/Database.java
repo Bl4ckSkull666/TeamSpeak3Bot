@@ -1,5 +1,6 @@
 package de.bl4ckskull666.teamspeakbot.classes;
 
+import com.mysql.jdbc.Driver;
 import de.bl4ckskull666.teamspeakbot.Main;
 
 import java.sql.*;
@@ -7,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.mysql.jdbc.Driver;
 
 public final class Database {
     private static boolean _use = false;

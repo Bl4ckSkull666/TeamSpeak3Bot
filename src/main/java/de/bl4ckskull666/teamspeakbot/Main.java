@@ -6,9 +6,7 @@ import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
 import com.github.theholywaffle.teamspeak3.api.reconnect.ReconnectStrategy;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ClientInfo;
-import de.bl4ckskull666.teamspeakbot.classes.Config;
-import de.bl4ckskull666.teamspeakbot.classes.Database;
-import de.bl4ckskull666.teamspeakbot.classes.MyLogger;
+import de.bl4ckskull666.teamspeakbot.classes.*;
 import de.bl4ckskull666.teamspeakbot.listeners.async.ASyncRegister;
 import de.bl4ckskull666.teamspeakbot.listeners.sync.SyncRegister;
 
@@ -28,6 +26,8 @@ public class Main {
     private static TS3Api _tsApiSync = null;
     private static TS3ApiAsync _tsApiAsync = null;
 
+    private static ScheduleTask _reconnectTask = null;
+
     public static void main(String[] args) {
         _logger = new MyLogger();
         _conf = new Config();
@@ -38,6 +38,9 @@ public class Main {
         ramChecker.start();
         Thread console = new Thread(new ConsoleReader());
         console.start();
+
+        Utils.loadTopOnlineFromDB();
+        Utils.loadClientsFromDB();
 
         //Start Bot now here
         _botThread = new Thread(new RunBot());
@@ -176,6 +179,27 @@ public class Main {
                 } catch (InterruptedException ex) {
                 }
             }
+
+            _reconnectTask = new ScheduleTask(new BotReload(), 60000,60000);
+        }
+    }
+
+    public static class BotReload implements Runnable {
+        @Override
+        public void run() {
+            if(_tsQuery.isConnected())
+                _tsQuery.exit();
+
+            _tsQuery = new TS3Query(_tsConfig);
+            _tsQuery.connect();
+            if(_conf.getBoolean("use-sync", true)) {
+                startSyncBot();
+            } else {
+                try {
+                    startASyncBot();
+                } catch (InterruptedException ex) {
+                }
+            }
         }
     }
 
@@ -215,6 +239,7 @@ public class Main {
                 _i++;
             }
         }
+
 
         private String getMB(long b) {
             double mb = b/(1024*1024);

@@ -2,7 +2,6 @@ package de.bl4ckskull666.teamspeakbot.listeners.async;
 
 import com.github.theholywaffle.teamspeak3.api.event.TextMessageEvent;
 import com.github.theholywaffle.teamspeak3.api.wrapper.*;
-import de.bl4ckskull666.teamspeakbot.Bot;
 import de.bl4ckskull666.teamspeakbot.Main;
 
 import java.util.ArrayList;
