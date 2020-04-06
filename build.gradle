@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'TeamSpeakBot'
+version ''
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'de.bl4ckskull666.teamspeakbot.Main'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-simple:1.7.30'
+    compile 'com.github.theholywaffle:teamspeak3-api:1.2.0'
+    compile 'mysql:mysql-connector-java:8.0.19'
+}
